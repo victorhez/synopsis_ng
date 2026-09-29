@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Authorization complete</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+  h1 { color: #D4AF37; }
+  .box { background: #f4f4f4; border-radius: 8px; padding: 16px; word-break: break-all; font-family: monospace; margin: 12px 0; }
+  .label { font-weight: bold; color: #555; font-size: 0.9em; }
+</style>
+</head>
+<body>
+  <h1>Authorization complete</h1>
+  <p>Copy the code below and paste it back into the terminal where you ran the authorization script.</p>
+  <div class="label">code</div>
+  <div class="box" id="code">(reading URL...)</div>
+  <div class="label">state</div>
+  <div class="box" id="state">(reading URL...)</div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('code').textContent = params.get('code') || '(none found in URL)';
+    document.getElementById('state').textContent = params.get('state') || '(none found in URL)';
+  </script>
+</body>
+</html>
